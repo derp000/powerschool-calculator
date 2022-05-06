@@ -16,6 +16,8 @@ Drivers are expected to be in the same directory as the `ps_calc` module, but an
 
 `geckodriver` is recommended since in python, its logs are outputted to a logfile rather than to the terminal by default. 
 
+Refer to `format.py` as a rough template for how you should use this module.
+
 ## API Reference
 
 ### `get_data() -> bs4.element.ResultSet`
