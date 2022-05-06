@@ -87,3 +87,7 @@ The following arguments are accepted:
 **sci_period : *[int], default `[0]`***
 
 &nbsp;&nbsp;&nbsp;&nbsp;Class periods for 6-credit science courses. Find this index by counting top-down on Home page, ignoring period 5 and 6.
+
+**missing : *int, default `0` (always required)***
+
+&nbsp;&nbsp;&nbsp;&nbsp;Number of classes which have not given any grades for a particular marking period.
