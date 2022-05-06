@@ -1,4 +1,3 @@
-from types import NoneType
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import csv
@@ -8,7 +7,7 @@ import time
 
 def get_data(
     ps_url: str = None,
-    grades_url: list[str] = None,
+    grades_url: str = None,
     lunch_co_0: str = None,
     lunch_co_1: str = None,
     read_from_file = False,
@@ -28,7 +27,7 @@ def get_data(
             driver = webdriver.Chrome()
         driver.get(ps_url)
         time.sleep(login_delay)
-        driver.get(grades_url[0])
+        driver.get(grades_url)
         soup = BeautifulSoup(driver.page_source, "html5lib")
         driver.close()
     
@@ -48,7 +47,7 @@ def get_data(
     except AttributeError:
         raise AttributeError("get_data() likely failed and returned None")
 
-def make_csv(raw_grades: list, mp_amt: int, *missing_grades: list) -> None:
+def make_csv(raw_grades: list, mp_amt: int, *missing_grades) -> None:
         with open("python/temp.csv", "w", encoding="UTF8", newline="") as fp:
             writer = csv.writer(fp)
             writer.writerow(["MP1", "MP2", "MP3", "MP4"])
@@ -73,7 +72,7 @@ def make_csv(raw_grades: list, mp_amt: int, *missing_grades: list) -> None:
 def load_df() -> pd.DataFrame:
     return pd.read_csv("python/temp.csv")
 
-def calc_qpa(df: pd.DataFrame, sci_period=[0], missing=0) -> None:
+def calc_qpa(df: pd.DataFrame, sci_period=[0], missing=0) -> float:
     credit = (len(df)-missing) * 1.25
     for _ in sci_period:
         credit += 0.25
@@ -82,4 +81,6 @@ def calc_qpa(df: pd.DataFrame, sci_period=[0], missing=0) -> None:
     for p in sci_period:
         df.loc[p] *= 1.2
 
-    print(f"{df.name} QPA: {df.sum()/credit:.2f}")
+    qpa = df.sum()/credit
+    print(f"{df.name} QPA: {round(qpa, 2)}")
+    return qpa
