@@ -1,3 +1,11 @@
+# testing purposes
+test.py
+*.csv
+*.html
+geckodriver.exe
+chromedriver.exe
+geckodriver.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
