@@ -33,7 +33,7 @@ def main():
     """
     As an example, you may
     CALL (some variation of) THIS:
-    raw = ps_calc.get_data(home, grades, LUNCH_CO_0, LUNCH_CO_1, read_from_file=True, file="python/test1.html")
+    raw = ps_calc.get_data(home, grades, LUNCH_CO_0, LUNCH_CO_1, read_from_file=True, file="path/to/file.html")
     
     OR THIS:
     raw = ps_calc.get_data(home, grades, LUNCH_CO_0, LUNCH_CO_1, read_from_file=False)
