@@ -4,6 +4,8 @@ A python module to calculate grades from PowerSchool via `selenium` and `Beautif
 
 ## Dependencies
 
+I forgor to use a venv so no `requirements.txt` :(.
+
 **`Python`**
 - `bs4` and `html5lib`
 - `selenium`
