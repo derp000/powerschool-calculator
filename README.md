@@ -1,8 +1,22 @@
-# ps_qpa (v1.0.0)
+# powerschool-calculator
 
-A python module to calculate grades from PowerSchool via `selenium` and `BeautifulSoup`. Will add jar package for java if I'm not lazy.
+A Java/Python API to calculate grades from PowerSchool.
 
-## Dependencies
+## Java Dependencies
+
+**`Java`**
+- `Jsoup`
+- `Selenium`
+
+Use provided `PowerSchoolCalculator.jar`. Dependencies used in `.jar` file and `src` directory are simply provided for reference.
+
+## Java API Reference
+
+TODO; API reference will likely be generated into html and hosted on GitHub.
+
+Java API javadoc comments are incomplete.
+
+## Python Dependencies
 
 **`Python`**
 - `bs4` and `html5lib`
@@ -21,7 +35,8 @@ Drivers are expected to be in the same directory as the `ps_calc` module, but an
 
 Refer to `format.py` as a rough template for how you should use this module.
 
-## API Reference
+
+## Python API Reference
 
 ### `get_data() -> bs4.element.ResultSet`
 
