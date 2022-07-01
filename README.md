@@ -10,7 +10,7 @@ A python module to calculate grades from PowerSchool via `selenium` and `Beautif
 - `pandas`
 - `pipenv`
 
-Install dependencies via 
+Install all necessary python dependencies via `requirements.txt` using command `pipenv install -r requirements.txt`.
 
 **`Selenium`**
 - `geckodriver` (recommended v0.30.0) and/or `chromedriver` (recommended v98.0.4758.80)
@@ -94,5 +94,9 @@ The following arguments are accepted:
 &nbsp;&nbsp;&nbsp;&nbsp;Class periods for 6-credit science courses. Find this index by counting top-down on Home page, ignoring period 5 and 6.
 
 **missing : *int, default `0` (always required)***
+
+&nbsp;&nbsp;&nbsp;&nbsp;Number of classes which have not given any grades for a particular marking period.
+
+**fmt_print : *boolean, default `False`***
 
 &nbsp;&nbsp;&nbsp;&nbsp;Number of classes which have not given any grades for a particular marking period.
