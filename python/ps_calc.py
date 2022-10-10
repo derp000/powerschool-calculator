@@ -34,14 +34,14 @@ def get_data(
     # regex go brrr
     try:
         return soup.find("table", class_="linkDescList grid").tbody.find_all(
-            href=lambda _href : _href and (
+            href=lambda _href : _href and not (
+                re.compile(lunch_co_0).search(_href) or
+                re.compile(lunch_co_1).search(_href)
+            ) and (
                 re.compile("fg=M1").search(_href) or
                 re.compile("fg=M2").search(_href) or
                 re.compile("fg=M3").search(_href) or
-                re.compile("fg=M4").search(_href) and not (
-                    re.compile(lunch_co_0).search(_href) or
-                    re.compile(lunch_co_1).search(_href)
-                )
+                re.compile("fg=M4").search(_href)
             )
         )
     except AttributeError:
