@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 import csv
 import pandas as pd
 import re
@@ -8,12 +10,12 @@ import time
 def get_data(
     ps_url: str = None,
     grades_url: str = None,
+    login_info: tuple[str] = None,
     lunch_co_0: str = None,
     lunch_co_1: str = None,
     read_from_file = False,
     file = "in.html",
     browser = "f",
-    login_delay = 7,
 ) -> list:
     soup = None
     if read_from_file:
@@ -26,7 +28,9 @@ def get_data(
         elif browser == "c":
             driver = webdriver.Chrome()
         driver.get(ps_url)
-        time.sleep(login_delay)
+        driver.find_element(By.ID, "fieldAccount").send_keys(login_info[0])
+        driver.find_element(By.ID, "fieldPassword").send_keys(login_info[1] + Keys.ENTER)
+        time.sleep(2)
         driver.get(grades_url)
         soup = BeautifulSoup(driver.page_source, "html5lib")
         driver.close()

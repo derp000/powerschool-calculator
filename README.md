@@ -27,7 +27,7 @@ Java API javadoc comments are incomplete.
 Install all necessary python dependencies via `requirements.txt` using command `pipenv install -r requirements.txt`.
 
 **`Selenium`**
-- `geckodriver` (recommended v0.30.0) and/or `chromedriver` (recommended v98.0.4758.80)
+- `geckodriver` (v0.30.0 recommended) and/or `chromedriver` (v98.0.4758.80 recommended)
 
 Drivers are expected to be in the same directory as the `ps_calc` module, but an absolute path may be specified.
 
@@ -50,6 +50,10 @@ The following arguments are accepted:
 
 &nbsp;&nbsp;&nbsp;&nbsp;Homepage of grades that WebDriver accesses.
 
+**login_info : *tuple[str], default `None` (required if `read_from_file = False`)***
+
+&nbsp;&nbsp;&nbsp;&nbsp;Login credentials for PowerSchool. THIS IMPLEMENTATION IS LIKELY NOT SECURE; USE AT YOUR OWN RISK.
+
 **lunch_co_0, lunch_co_1 : _str, default `None` (always required)_**
 
 &nbsp;&nbsp;&nbsp;&nbsp;`<a>` tag `href` attribute in format of `frn={numbers}`.
@@ -65,10 +69,6 @@ The following arguments are accepted:
 **browser : *str, default `"f"`***
 
 &nbsp;&nbsp;&nbsp;&nbsp;Selects browser for Selenium WebDriver to use. Set `browser="c"` for `chromedriver`.
-
-**login_delay : *int, default `7`***
-
-&nbsp;&nbsp;&nbsp;&nbsp;Time allocated for user to log in.
 
 ### `fmt_data() -> CSV file`
 
